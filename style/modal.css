@@ -5,13 +5,16 @@
   bottom: 0;
   left: 0;
   overflow-y: auto;
-  display: none;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   z-index: 99;
   padding: 30px 0;
   background-color: rgba(229, 229, 229, 0.4);
+}
+
+.modal--active {
+  display: none;
 }
 
 .modal__window {
