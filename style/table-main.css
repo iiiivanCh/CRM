@@ -1,0 +1,146 @@
+.table-main {
+  overflow-x: auto;
+}
+
+.table {
+  min-width: 1100px;
+  border-top: 1px solid var(--color-line);
+  border-collapse: collapse;
+}
+
+.table__thead-tr {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-2);
+  background-color: var(--color-background-3);
+}
+
+.table__th {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.table__th--one {
+  padding-left: 15px;
+  width: 108px;
+  text-align: left;
+}
+
+.table__th--two {
+  width: 303px;
+  text-align: left;
+}
+
+.table__th--three {
+  width: 174px;
+  text-align: left;
+}
+
+.table__th--four {
+  width: 58px;
+  text-align: center;
+}
+
+.table__th--five {
+  width: 113px;
+  text-align: center;
+}
+
+.table__th--six,
+.table__th--seven {
+  padding-right: 10px;
+  width: 95px;
+  text-align: right;
+}
+
+.table__th--eight {
+  padding-right: 9px;
+  width: 64px;
+}
+.table__th--nine {
+  padding-right: 10px;
+  padding-left: 10px;
+  width: 40px;
+}
+
+.table__th--ten {
+  width: 50px;
+}
+
+.table__tbody-tr {
+  height: 60px;
+  border-top: 1px solid var(--color-line);
+  background-color: var(--color-background-1);
+}
+
+.table__td--one {
+  padding-left: 15px;
+}
+
+.table__td--four,
+.table__td--five {
+  text-align: center;
+}
+
+.table__td--six,
+.table__td--seven {
+  padding-right: 10px;
+  text-align: right;
+}
+
+.table__td--eight {
+  padding-left: 39px;
+  width: 64px;
+}
+.table__td--nine {
+  padding-left: 16px;
+  width: 40px;
+}
+
+.table__td--ten {
+  padding-left: 16px;
+  width: 50px;
+}
+
+.no-img {
+  width: 20px;
+  height: 50px;
+  background-color: inherit;
+  background-image: url(../img/no-image.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: none;
+}
+
+.img {
+  width: 20px;
+  height: 50px;
+  background-color: inherit;
+  background-image: url(../img/image.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: none;
+}
+
+.edit-button {
+  width: 20px;
+  height: 50px;
+  background-color: inherit;
+  background-image: url(../img/edit1.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: none;
+}
+
+.basket {
+  width: 20px;
+  height: 50px;
+  background-color: inherit;
+  background-image: url(../img/basket.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 51%;
+  border: none;
+}

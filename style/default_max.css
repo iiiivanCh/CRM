@@ -1,0 +1,120 @@
+html {
+  position: relative;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: var(--color-text-1);
+  background-color: var(--color-background-2);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+fieldset {
+  margin: 0;
+}
+
+/* iiiivan добавил сам */
+fieldset {
+  padding: 0;
+  border: 0 none;
+}
+
+iframe {
+  border: none;
+}
+
+/*
+Доступно скрываю элементы
+*/
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+/*
+Пример контейнера
+Если контейнер 1180px по макету,
+то для max-width прибавляем паддинги 30px*2,
+в итоге 1240px
+Чтобы контент не прижимался к краям экрана
+*/
+
+.container {
+  max-width: 1160px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+/* @media (max-width: 1250px) {
+  .container {
+    max-width: 964px;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 748px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 530px;
+    padding: 0 20px;
+  }
+} */
+
+@media (max-width: 575px) {
+  .container {
+    padding: 0 10px;
+  }
+}

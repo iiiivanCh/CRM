@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Карточка товара Таблица товаров</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header header--decor">
+        <h1 class="header__title">CRM</h1>
+        <p class="header__total">
+          Итоговая стоимость:<span class="header__total-number"> $900.00</span>
+        </p>
+      </header>
+      <main class="main">
+        <section class="table-top">
+          <div class="table-top__control">
+            <button class="button-filter">
+              <span class="button-filter-text">Фильтр</span>
+            </button>
+            <input
+              type="text"
+              placeholder="Поиск по наименованию и категории"
+              class="table-top__search"
+            />
+            <button class="table-top__modal">добавить товар</button>
+          </div>
+        </section>
+        <section class="table-main">
+          <table class="table">
+            <thead class="table__thead">
+              <tr class="table__thead-tr">
+                <th class="table__th table__th--one">ID</th>
+                <th class="table__th table__th--two">Наименование</th>
+                <th class="table__th table__th--three">Категория</th>
+                <th class="table__th table__th--four">ед/изм</th>
+                <th class="table__th table__th--five">количество</th>
+                <th class="table__th table__th--six">цена</th>
+                <th class="table__th table__th--seven">ИТОГ</th>
+                <th class="table__th table__th--eight"></th>
+                <th class="table__th table__th--nine"></th>
+                <th class="table__th table__th--ten"></th>
+              </tr>
+            </thead>
+            <tbody class="table__tbody">
+              <tr class="table__tbody-tr">
+                <td class="table__td table__td--one">246016548</td>
+                <td class="table__td">Навигационная система Soundmax</td>
+                <td class="table__td">Техника для дома</td>
+                <td class="table__td table__td--four">шт</td>
+                <td class="table__td table__td--five">5</td>
+                <td class="table__td table__td--six">$100</td>
+                <td class="table__td table__td--seven">$500</td>
+                <td class="table__td table__td--eight">
+                  <button class="no-img"></button>
+                </td>
+                <td class="table__td table__td--nine">
+                  <button class="edit-button"></button>
+                </td>
+                <td class="table__td table__td--ten">
+                  <button class="basket"></button>
+                </td>
+              </tr>
+              <!-- конец первой строки -->
+              <tr class="table__tbody-tr">
+                <td class="table__td table__td--one">937295527</td>
+                <td class="table__td">Настольная игра “На 4-х ногах”</td>
+                <td class="table__td">Настольные игры</td>
+                <td class="table__td table__td--four">шт</td>
+                <td class="table__td table__td--five">12</td>
+                <td class="table__td table__td--six">$14</td>
+                <td class="table__td table__td--seven">$168</td>
+                <td class="table__td table__td--eight">
+                  <button class="img"></button>
+                </td>
+                <td class="table__td table__td--nine">
+                  <button class="edit-button"></button>
+                </td>
+                <td class="table__td table__td--ten">
+                  <button class="basket"></button>
+                </td>
+              </tr>
+              <!-- конец второй строки -->
+              <tr class="table__tbody-tr">
+                <td class="table__td table__td--one">246016548</td>
+                <td class="table__td">Навигационная система Soundmax</td>
+                <td class="table__td">Техника для дома</td>
+                <td class="table__td table__td--four">шт</td>
+                <td class="table__td table__td--five">5</td>
+                <td class="table__td table__td--six">$100</td>
+                <td class="table__td table__td--seven">$500</td>
+                <td class="table__td table__td--eight">
+                  <button class="no-img"></button>
+                </td>
+                <td class="table__td table__td--nine">
+                  <button class="edit-button"></button>
+                </td>
+                <td class="table__td table__td--ten">
+                  <button class="basket"></button>
+                </td>
+              </tr>
+              <!-- конец третьей строки -->
+              <tr class="table__tbody-tr">
+                <td class="table__td table__td--one">246016548</td>
+                <td class="table__td">Навигационная система Soundmax</td>
+                <td class="table__td">Техника для дома</td>
+                <td class="table__td table__td--four">шт</td>
+                <td class="table__td table__td--five">5</td>
+                <td class="table__td table__td--six">$100</td>
+                <td class="table__td table__td--seven">$500</td>
+                <td class="table__td table__td--eight">
+                  <button class="no-img"></button>
+                </td>
+                <td class="table__td table__td--nine">
+                  <button class="edit-button"></button>
+                </td>
+                <td class="table__td table__td--ten">
+                  <button class="basket"></button>
+                </td>
+              </tr>
+              <!-- конец четвертой строки -->
+              <tr class="table__tbody-tr">
+                <td class="table__td table__td--one">246016548</td>
+                <td class="table__td">Навигационная система Soundmax</td>
+                <td class="table__td">Техника для дома</td>
+                <td class="table__td table__td--four">шт</td>
+                <td class="table__td table__td--five">5</td>
+                <td class="table__td table__td--six">$100</td>
+                <td class="table__td table__td--seven">$500</td>
+                <td class="table__td table__td--eight">
+                  <button class="no-img"></button>
+                </td>
+                <td class="table__td table__td--nine">
+                  <button class="edit-button"></button>
+                </td>
+                <td class="table__td table__td--ten">
+                  <button class="basket"></button>
+                </td>
+              </tr>
+              <!-- конец пятой строки -->
+              <tr class="table__tbody-tr">
+                <td class="table__td table__td--one">246016548</td>
+                <td class="table__td">Навигационная система Soundmax</td>
+                <td class="table__td">Техника для дома</td>
+                <td class="table__td table__td--four">шт</td>
+                <td class="table__td table__td--five">5</td>
+                <td class="table__td table__td--six">$100</td>
+                <td class="table__td table__td--seven">$500</td>
+                <td class="table__td table__td--eight">
+                  <button class="no-img"></button>
+                </td>
+                <td class="table__td table__td--nine">
+                  <button class="edit-button"></button>
+                </td>
+                <td class="table__td table__td--ten">
+                  <button class="basket"></button>
+                </td>
+              </tr>
+              <!-- конец шестой строки -->
+              <tr class="table__tbody-tr">
+                <td class="table__td table__td--one">246016548</td>
+                <td class="table__td">Навигационная система Soundmax</td>
+                <td class="table__td">Техника для дома</td>
+                <td class="table__td table__td--four">шт</td>
+                <td class="table__td table__td--five">5</td>
+                <td class="table__td table__td--six">$100</td>
+                <td class="table__td table__td--seven">$500</td>
+                <td class="table__td table__td--eight">
+                  <button class="no-img"></button>
+                </td>
+                <td class="table__td table__td--nine">
+                  <button class="edit-button"></button>
+                </td>
+                <td class="table__td table__td--ten">
+                  <button class="basket"></button>
+                </td>
+              </tr>
+              <!-- конец седьмой строки -->
+              <tr class="table__tbody-tr">
+                <td class="table__td table__td--one">246016548</td>
+                <td class="table__td">Навигационная система Soundmax</td>
+                <td class="table__td">Техника для дома</td>
+                <td class="table__td table__td--four">шт</td>
+                <td class="table__td table__td--five">5</td>
+                <td class="table__td table__td--six">$100</td>
+                <td class="table__td table__td--seven">$500</td>
+                <td class="table__td table__td--eight">
+                  <button class="no-img"></button>
+                </td>
+                <td class="table__td table__td--nine">
+                  <button class="edit-button"></button>
+                </td>
+                <td class="table__td table__td--ten">
+                  <button class="basket"></button>
+                </td>
+              </tr>
+              <!-- конец восьмой строки -->
+              <tr class="table__tbody-tr">
+                <td class="table__td table__td--one">246016548</td>
+                <td class="table__td">Навигационная система Soundmax</td>
+                <td class="table__td">Техника для дома</td>
+                <td class="table__td table__td--four">шт</td>
+                <td class="table__td table__td--five">5</td>
+                <td class="table__td table__td--six">$100</td>
+                <td class="table__td table__td--seven">$500</td>
+                <td class="table__td table__td--eight">
+                  <button class="no-img"></button>
+                </td>
+                <td class="table__td table__td--nine">
+                  <button class="edit-button"></button>
+                </td>
+                <td class="table__td table__td--ten">
+                  <button class="basket"></button>
+                </td>
+              </tr>
+              <!-- конец девятой строки -->
+              <tr class="table__tbody-tr">
+                <td class="table__td table__td--one">246016548</td>
+                <td class="table__td">Навигационная система Soundmax</td>
+                <td class="table__td">Техника для дома</td>
+                <td class="table__td table__td--four">шт</td>
+                <td class="table__td table__td--five">5</td>
+                <td class="table__td table__td--six">$100</td>
+                <td class="table__td table__td--seven">$500</td>
+                <td class="table__td table__td--eight">
+                  <button class="no-img"></button>
+                </td>
+                <td class="table__td table__td--nine">
+                  <button class="edit-button"></button>
+                </td>
+                <td class="table__td table__td--ten">
+                  <button class="basket"></button>
+                </td>
+              </tr>
+              <!-- конец десятой строки -->
+            </tbody>
+          </table>
+        </section>
+        <section class="table-end">
+          <div class="table-end__show">
+            <p class="table-end__text">Показывать на странице:</p>
+            <select name="number-line" id="" class="table-end__number-line">
+              <option value="10" class="table-end__option">10</option>
+              <option value="20" class="table-end__option">20</option>
+              <option value="30" class="table-end__option">30</option>
+            </select>
+          </div>
+          <div class="table-end__wrap">
+            <p class="table-end__of">1-10 of 276</p>
+            <button class="table-end-btn-left"></button>
+            <button class="table-end-btn-right"></button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="modal">
+      <div class="modal__window">
+        <button class="modal__close"></button>
+        <div class="top modal__top">
+          <h2 class="top__title">изменить товар</h2>
+          <button class="top__btn">ID: 201910241</button>
+        </div>
+        <form id="product" class="corpus modal__corpus">
+          <div class="corpus__grid">
+            <label for="name" class="edit edit--name">
+              <span class="edit__title">наименование</span>
+              <input type="text" name="name" id="name" class="edit__input" />
+            </label>
+            <label for="category" class="edit edit--category">
+              <span class="edit__title">категория</span>
+              <input
+                type="text"
+                name="category"
+                id="category"
+                class="edit__input"
+              />
+            </label>
+            <label for="unit" class="edit edit--unit">
+              <span class="edit__title">единицы измерения</span>
+              <input type="text" name="unit" id="unit" class="edit__input" />
+            </label>
+            <label for="sum" class="edit edit--sum">
+              <span class="edit__title">количество</span>
+              <input type="number" name="sum" id="sum" class="edit__input" />
+            </label>
+            <label for="price" class="edit edit--price">
+              <span class="edit__title">цена</span>
+              <input
+                type="number"
+                name="price"
+                id="price"
+                class="edit__input"
+              />
+            </label>
+            <label for="description" class="edit edit--description">
+              <span class="edit__title">описание</span>
+              <textarea
+                name="description"
+                id="description"
+                class="edit__textarea"
+              ></textarea>
+            </label>
+            <div class="edit edit--discount">
+              <label for="discount">
+                <span class="edit__title">дисконт</span>
+              </label>
+              <div class="edit__couple">
+                <input
+                  type="checkbox"
+                  name="discount"
+                  id="discount"
+                  class="edit__checkbox"
+                />
+                <input
+                  type="text"
+                  name="discount-name"
+                  id="discount-name"
+                  class="edit__input-discount"
+                />
+              </div>
+            </div>
+            <p class="error">Изображение не должно превышать размер 1 Мб</p>
+            <button class="button-corpus">добавить изображение</button>
+          </div>
+          <!-- /.corpus__grid -->
+          <div class="modal__img">
+            <img
+              src="img/s5_men.jpg"
+              alt="фото товара"
+              class="modal__img-img"
+            />
+          </div>
+        </form>
+        <!-- /.corpus -->
+        <div class="modal__add">
+          <p class="modal__total">
+            Итоговая стоимость:<span class="modal__total-number">
+              $&nbsp;900.00</span
+            >
+          </p>
+          <button type="submit" form="data" class="modal__total-button">
+            добавить товар
+          </button>
+        </div>
+      </div>
+      <!-- /.modal__window -->
+    </div>
+    <!-- /.modal -->
+  </body>
+</html>
