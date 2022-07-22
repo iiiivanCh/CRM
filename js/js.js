@@ -60,61 +60,61 @@ const serverData = [
   }
 ]
 
-const createRow = (arrayObject) => {
-  let counter = 0;
-  let objectTh = [];
-  let tableTh = [];
-  const table = document.querySelector('table');
-  const tableTr = document.createElement('tr');
-  table.append(tableTr);
-  for (let key in arrayObject) {
-    if (typeof (arrayObject[key]) === 'object') {
-      for (let i in arrayObject[key]) {
-        counter++;
-      }
-    }
-    else {
-      counter++;
-    }
-  }
-  for (let i = 0; i < counter; i++) {
-    const tableTrTd = document.createElement('td');
-    tableTrTd.innerText = 'не знаю как подставить, чтобы из массива randerGoods вставилось, не понимаю описанную логbre в задании';
-    tableTr.append(tableTrTd);
-    // console.log(tableTr);
-  }
-
-  // console.log(tableTr);
-  return tableTr;
+const clearRow = () => {
+  let trTh = Array.from(document.querySelectorAll('thead > tr > th'));
+  trTh.map(item => item.remove());
+  // let tbodyTrTd = Array.from(document.querySelectorAll('tbody > tr > td'));
+  // tbodyTrTd.map(item => item.remove());
+  let tbodyTr = Array.from(document.querySelectorAll('tbody > tr'));
+  tbodyTr.map(item => item.remove());
 }
 
-const renderGoods = (arrayObjects) => {
-  const newTr = arrayObjects.map((i, key) => {
-    let checkingElementsFirst = Object.values(arrayObjects[key]);
-    let newNestedAr = [];
-    let newArrItem = [];
-    const checkingElementsSecond = checkingElementsFirst.map((item) => {
-      if (typeof (item) === 'object') {
-        newNestedAr = Object.values(item);
-        newArrItem.push(...newNestedAr);
-      } else {
-        newArrItem.push(item);
+const createRowTitle = (obj) => {
+  let tr = document.querySelector('thead > tr');
+  for (let key in obj) {
+    if (typeof (obj[key]) === 'object') {
+      for (let chKey in obj[key]) {
+        let th = document.createElement('th');
+        th.classList.add('table__th');
+        th.innerHTML = `${key} ${chKey}`;
+        tr.append(th);
       }
-    });
-    return newArrItem;
+    } else {
+      let th = document.createElement('th');
+      th.classList.add('table__th');
+      th.innerHTML = key;
+      tr.append(th);
+    }
+  }
+}
+
+const createRow = (obj) => {
+  let tr = document.createElement('tr')
+  tr.classList.add('table__tbody-tr');
+  for (let key in obj) {
+    if (typeof (obj[key]) === 'object') {
+      for (let chKey in obj[key]) {
+        let td = document.createElement('td');
+        td.classList.add('table__td');
+        td.innerHTML = `${obj[key][chKey]}`;
+        tr.append(td);
+      }
+    } else {
+      let td = document.createElement('td');
+      td.classList.add('table__td');
+      td.innerHTML = `${obj[key]}`;
+      tr.append(td);
+    }
+  }
+  return tr;
+}
+
+const renderGoods = (arr) => {
+  clearRow();
+  createRowTitle(arr[0]);
+  arr.map((item) => {
+    document.querySelector('tbody').append(createRow(item));
   });
-  return newTr;
+
 }
-
-
-const newRow = () => {
-  const a = renderGoods(serverData);
-  const b = a.map((item) => createRow(item));
-  console.log(a);
-  console.log(b);
-}
-
-newRow();
-// createRow(serverData[0]);
-
-// console.log(renderGoods(serverData));
+renderGoods(serverData);
