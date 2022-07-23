@@ -1,5 +1,10 @@
 "use strict"
 
+const nameForm = document.querySelector('.top__title');
+const numberID = document.querySelector('.top__btn');
+const form = document.querySelector('form');
+const coupleDiscount = document.querySelector('.edit__couple');
+const totalProduct = document.querySelector('.modal__total-number');
 
 const serverData = [
   {
@@ -60,61 +65,39 @@ const serverData = [
   }
 ]
 
-const clearRow = () => {
-  let trTh = Array.from(document.querySelectorAll('thead > tr > th'));
-  trTh.map(item => item.remove());
-  // let tbodyTrTd = Array.from(document.querySelectorAll('tbody > tr > td'));
-  // tbodyTrTd.map(item => item.remove());
-  let tbodyTr = Array.from(document.querySelectorAll('tbody > tr'));
-  tbodyTr.map(item => item.remove());
-}
+const createRow = ({
+  id,
+  title,
+  price,
+  category,
+  count,
+  units,
+  images,
+}) => `
+<tr class="table__tbody-tr">
+  <td class="table__td table__td--one">${id}</td>
+  <td class="table__td">${title}</td>
+  <td class="table__td">${category}</td>
+  <td class="table__td table__td--four">${units}</td>
+  <td class="table__td table__td--five">${count}</td>
+  <td class="table__td table__td--six">${price}</td>
+  <td class="table__td table__td--seven">${price * count}</td>
+  <td class="table__td table__td--eight">
+  <button type="button" class="${images ? `img` : `no-img`}"></button>
+  </td>
+  <td class="table__td table__td--nine">
+  <button type="button" class="edit-button"></button>
+  </td>
+  <td class="table__td table__td--ten">
+  <button type="button" class="basket"></button>
+  </td>
+</tr>
+`;
 
-const createRowTitle = (obj) => {
-  let tr = document.querySelector('thead > tr');
-  for (let key in obj) {
-    if (typeof (obj[key]) === 'object') {
-      for (let chKey in obj[key]) {
-        let th = document.createElement('th');
-        th.classList.add('table__th');
-        th.innerHTML = `${key} ${chKey}`;
-        tr.append(th);
-      }
-    } else {
-      let th = document.createElement('th');
-      th.classList.add('table__th');
-      th.innerHTML = key;
-      tr.append(th);
-    }
-  }
-}
-
-const createRow = (obj) => {
-  let tr = document.createElement('tr')
-  tr.classList.add('table__tbody-tr');
-  for (let key in obj) {
-    if (typeof (obj[key]) === 'object') {
-      for (let chKey in obj[key]) {
-        let td = document.createElement('td');
-        td.classList.add('table__td');
-        td.innerHTML = `${obj[key][chKey]}`;
-        tr.append(td);
-      }
-    } else {
-      let td = document.createElement('td');
-      td.classList.add('table__td');
-      td.innerHTML = `${obj[key]}`;
-      tr.append(td);
-    }
-  }
-  return tr;
-}
-
-const renderGoods = (arr) => {
-  clearRow();
-  createRowTitle(arr[0]);
-  arr.map((item) => {
-    document.querySelector('tbody').append(createRow(item));
+const renderGoods = (data) => {
+  let table = document.querySelector('.table__tbody');
+  data.map((item) => {
+    return table.insertAdjacentHTML('afterbegin', createRow(item));
   });
-
 }
 renderGoods(serverData);
