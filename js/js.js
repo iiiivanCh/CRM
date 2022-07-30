@@ -101,3 +101,28 @@ const renderGoods = (data) => {
   });
 }
 renderGoods(serverData);
+
+const modalOpen = document.querySelector('.table-top__modal');
+const modal = document.querySelector('.modal')
+
+modalOpen.addEventListener('click', () => {
+  modal.classList.add('modal--active');
+});
+
+const modalWindow = document.querySelector('.modal__window');
+
+modalWindow.addEventListener('click', event => {
+  event.stopPropagation();
+});
+
+modal.addEventListener('click', () => {
+  modal.classList.remove('modal--active');
+});
+
+const closeButton = document.querySelector('.modal__close');
+
+closeButton.addEventListener('click', () => {
+  modal.classList.remove('modal--active');
+});
+
+
