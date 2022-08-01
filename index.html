@@ -18,7 +18,7 @@
         </p>
       </header>
       <main class="main">
-        <section class="table-top">
+        <div class="table-top">
           <div class="table-top__control">
             <button type="button" class="button-filter">
               <span class="button-filter-text">Фильтр</span>
@@ -32,8 +32,8 @@
               добавить товар
             </button>
           </div>
-        </section>
-        <section class="table-main">
+        </div>
+        <div class="table-main">
           <table class="table">
             <thead class="table__thead">
               <tr class="table__thead-tr">
@@ -242,11 +242,15 @@
               <!-- конец десятой строки -->
             </tbody>
           </table>
-        </section>
-        <section class="table-end">
+        </div>
+        <div class="table-end">
           <div class="table-end__show">
             <p class="table-end__text">Показывать на странице:</p>
-            <select name="number-line" id="" class="table-end__number-line">
+            <select
+              name="number-line"
+              id="number-line"
+              class="table-end__number-line"
+            >
               <option value="10" class="table-end__option">10</option>
               <option value="20" class="table-end__option">20</option>
               <option value="30" class="table-end__option">30</option>
@@ -257,7 +261,7 @@
             <button type="button" class="table-end-btn-left"></button>
             <button type="button" class="table-end-btn-right"></button>
           </div>
-        </section>
+        </div>
       </main>
     </div>
     <div class="modal">
@@ -347,7 +351,7 @@
               $&nbsp;900.00</span
             >
           </p>
-          <button type="submit" form="data" class="modal__total-button">
+          <button type="submit" form="product" class="modal__total-button">
             добавить товар
           </button>
         </div>
