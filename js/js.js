@@ -111,8 +111,8 @@ modalOpen.addEventListener('click', () => {
 
 const modalWindow = document.querySelector('.modal__window');
 
-modalWindow.addEventListener('click', event => {
-  event.stopPropagation();
+modalWindow.addEventListener('click', e => {
+  e.stopPropagation();
 });
 
 modal.addEventListener('click', () => {
