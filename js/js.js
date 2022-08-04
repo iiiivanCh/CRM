@@ -6,7 +6,7 @@ const form = document.querySelector('form');
 const coupleDiscount = document.querySelector('.edit__couple');
 const totalProduct = document.querySelector('.modal__total-number');
 
-const serverData = [
+let serverData = [
   {
     "id": 253842678,
     "title": "Смартфон Xiaomi 11T 8/128GB",
@@ -103,18 +103,13 @@ const renderGoods = (data) => {
 renderGoods(serverData);
 
 const modalOpen = document.querySelector('.table-top__modal');
-const modal = document.querySelector('.modal')
+const modal = document.querySelector('.modal');
 
 modalOpen.addEventListener('click', () => {
   modal.classList.add('modal--active');
 });
 
 const modalWindow = document.querySelector('.modal__window');
-// const closeButton = document.querySelector('.modal__close');
-
-// modalWindow.addEventListener('click', e => {
-//   e.stopPropagation();
-// });
 
 modal.addEventListener('click', e => {
   if (e.target === modal || e.target.classList.contains('modal__close')) {
@@ -122,10 +117,15 @@ modal.addEventListener('click', e => {
   }
 });
 
-// const closeButton = document.querySelector('.modal__close');
 
-// closeButton.addEventListener('click', () => {
-//   modal.classList.remove('modal--active');
-// });
+const tBody = document.querySelector('.table__tbody');
 
-
+tBody.addEventListener('click', e => {
+  if (e.target.closest('.basket')) {
+    const delRow = e.target.closest('.table__tbody-tr');
+    const tdID = delRow.querySelector('.table__td--one').innerHTML;
+    serverData = serverData.filter(item => item.id !== Number(tdID));
+    console.log(serverData);
+    e.target.closest('.table__tbody-tr').remove();
+  }
+});
