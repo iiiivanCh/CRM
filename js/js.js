@@ -126,6 +126,6 @@ tBody.addEventListener('click', e => {
     const tdID = delRow.querySelector('.table__td--one').innerHTML;
     serverData = serverData.filter(item => item.id !== Number(tdID));
     console.log(serverData);
-    e.target.closest('.table__tbody-tr').remove();
+    delRow.remove();
   }
 });
