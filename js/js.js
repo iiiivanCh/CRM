@@ -110,19 +110,22 @@ modalOpen.addEventListener('click', () => {
 });
 
 const modalWindow = document.querySelector('.modal__window');
+// const closeButton = document.querySelector('.modal__close');
 
-modalWindow.addEventListener('click', e => {
-  e.stopPropagation();
+// modalWindow.addEventListener('click', e => {
+//   e.stopPropagation();
+// });
+
+modal.addEventListener('click', e => {
+  if (e.target === modal || e.target.classList.contains('modal__close')) {
+    modal.classList.remove('modal--active');
+  }
 });
 
-modal.addEventListener('click', () => {
-  modal.classList.remove('modal--active');
-});
+// const closeButton = document.querySelector('.modal__close');
 
-const closeButton = document.querySelector('.modal__close');
-
-closeButton.addEventListener('click', () => {
-  modal.classList.remove('modal--active');
-});
+// closeButton.addEventListener('click', () => {
+//   modal.classList.remove('modal--active');
+// });
 
 
