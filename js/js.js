@@ -2,7 +2,7 @@
 
 const nameForm = document.querySelector('.top__title');
 const numberID = document.querySelector('.top__btn');
-const form = document.querySelector('form');
+// const form = document.querySelector('form');
 const coupleDiscount = document.querySelector('.edit__couple');
 const totalProduct = document.querySelector('.modal__total-number');
 
@@ -129,3 +129,17 @@ tBody.addEventListener('click', e => {
     delRow.remove();
   }
 });
+
+const editCheckbox = document.querySelector('.edit__checkbox');
+const editInputDiscount = document.querySelector('.edit__input-discount');
+
+editCheckbox.addEventListener('click', e => {
+  console.log(e.target.checked);
+  if (e.target.checked) {
+    editInputDiscount.disabled = false;
+  }
+  else {
+    editInputDiscount.disabled = true;
+  }
+  console.log(editInputDiscount.disabled);
+})
