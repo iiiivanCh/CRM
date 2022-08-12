@@ -134,12 +134,6 @@ const editCheckbox = document.querySelector('.edit__checkbox');
 const editInputDiscount = document.querySelector('.edit__input-discount');
 
 editCheckbox.addEventListener('click', e => {
-  console.log(e.target.checked);
-  if (e.target.checked) {
-    editInputDiscount.disabled = false;
-  }
-  else {
+  e.target.checked ? editInputDiscount.disabled = false :
     editInputDiscount.disabled = true;
-  }
-  console.log(editInputDiscount.disabled);
 })
