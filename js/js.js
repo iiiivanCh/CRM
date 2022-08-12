@@ -65,6 +65,7 @@ let serverData = [
   }
 ]
 
+// формируем строку таблицы
 const createRow = ({
   id,
   title,
@@ -94,6 +95,7 @@ const createRow = ({
 </tr>
 `;
 
+// добавляем строки в таблицу
 const renderGoods = (data) => {
   let table = document.querySelector('.table__tbody');
   data.map((item) => {
@@ -102,6 +104,7 @@ const renderGoods = (data) => {
 }
 renderGoods(serverData);
 
+//организуем закрытие или открытие модального окна
 const modalOpen = document.querySelector('.table-top__modal');
 const modal = document.querySelector('.modal');
 
@@ -117,7 +120,7 @@ modal.addEventListener('click', e => {
   }
 });
 
-
+//удаляем строку по клику на кнопке удаления строки
 const tBody = document.querySelector('.table__tbody');
 
 tBody.addEventListener('click', e => {
@@ -130,10 +133,24 @@ tBody.addEventListener('click', e => {
   }
 });
 
+//Организуем блокировку разблокировку инпута дисконт
 const editCheckbox = document.querySelector('.edit__checkbox');
 const editInputDiscount = document.querySelector('.edit__input-discount');
 
 editCheckbox.addEventListener('click', e => {
   e.target.checked ? editInputDiscount.disabled = false :
     editInputDiscount.disabled = true;
+})
+
+//Организуем передачу данных из форму в таблицу
+//Потом наверное паралельно и отправку на сервер
+const form = document.querySelector('#product');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+
+  console.log([Object.fromEntries(formData)]);
+
 })
