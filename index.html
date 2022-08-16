@@ -268,14 +268,20 @@
       <div class="modal__window">
         <button class="modal__close"></button>
         <div class="top modal__top">
-          <h2 class="top__title">изменить товар</h2>
+          <h2 class="top__title">добавить товар</h2>
           <button type="button" class="top__btn">ID: 201910241</button>
         </div>
         <form id="product" class="corpus modal__corpus">
           <div class="corpus__grid">
-            <label for="name" class="edit edit--name">
+            <label for="title" class="edit edit--name">
               <span class="edit__title">наименование</span>
-              <input type="text" name="name" id="name" class="edit__input" />
+              <input
+                type="text"
+                name="title"
+                id="title"
+                required
+                class="edit__input"
+              />
             </label>
             <label for="category" class="edit edit--category">
               <span class="edit__title">категория</span>
@@ -283,16 +289,29 @@
                 type="text"
                 name="category"
                 id="category"
+                required
                 class="edit__input"
               />
             </label>
-            <label for="unit" class="edit edit--unit">
+            <label for="units" class="edit edit--unit">
               <span class="edit__title">единицы измерения</span>
-              <input type="text" name="unit" id="unit" class="edit__input" />
+              <input
+                type="text"
+                name="units"
+                id="units"
+                required
+                class="edit__input"
+              />
             </label>
-            <label for="sum" class="edit edit--sum">
+            <label for="count" class="edit edit--sum">
               <span class="edit__title">количество</span>
-              <input type="number" name="sum" id="sum" class="edit__input" />
+              <input
+                type="number"
+                name="count"
+                id="count"
+                required
+                class="edit__input"
+              />
             </label>
             <label for="price" class="edit edit--price">
               <span class="edit__title">цена</span>
@@ -300,6 +319,7 @@
                 type="number"
                 name="price"
                 id="price"
+                required
                 class="edit__input"
               />
             </label>
@@ -308,18 +328,19 @@
               <textarea
                 name="description"
                 id="description"
+                required
                 class="edit__textarea"
               ></textarea>
             </label>
             <div class="edit edit--discount">
-              <label for="discount">
+              <label for="discont">
                 <span class="edit__title">дисконт</span>
               </label>
               <div class="edit__couple">
                 <input
                   type="checkbox"
-                  name="discount"
-                  id="discount"
+                  name="discont"
+                  id="discont"
                   class="edit__checkbox"
                 />
                 <input
@@ -349,7 +370,7 @@
         <div class="modal__add">
           <p class="modal__total">
             Итоговая стоимость:<span class="modal__total-number">
-              $&nbsp;900.00</span
+              $&nbsp;<span class="total">900</span></span
             >
           </p>
           <button type="submit" form="product" class="modal__total-button">

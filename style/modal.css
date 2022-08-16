@@ -64,6 +64,7 @@
 .top__btn {
   padding-right: 28px;
   min-height: 20px;
+  display: none;
   background-image: url(../img/edit.svg);
   background-repeat: no-repeat;
   background-position: 100% 50%;
@@ -74,6 +75,10 @@
   text-transform: uppercase;
   color: #c5c5c5;
   border: none;
+}
+
+.top__btn--active {
+  display: block;
 }
 
 .modal__corpus {

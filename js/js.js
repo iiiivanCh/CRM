@@ -62,7 +62,7 @@ let serverData = [
       "small": "img/lan_proconnect43-3-25.jpg",
       "big": "img/lan_proconnect43-3-25-b.jpg"
     }
-  }
+  },
 ]
 
 // формируем строку таблицы
@@ -98,6 +98,7 @@ const createRow = ({
 // добавляем строки в таблицу
 const renderGoods = (data) => {
   let table = document.querySelector('.table__tbody');
+  table.innerHTML = '';
   data.map((item) => {
     return table.insertAdjacentHTML('afterbegin', createRow(item));
   });
@@ -120,18 +121,25 @@ modal.addEventListener('click', e => {
   }
 });
 
+const closeModal = () => {
+  modal.classList.remove('modal--active');
+};
+
 //удаляем строку по клику на кнопке удаления строки
 const tBody = document.querySelector('.table__tbody');
 
 tBody.addEventListener('click', e => {
   if (e.target.closest('.basket')) {
     const delRow = e.target.closest('.table__tbody-tr');
-    const tdID = delRow.querySelector('.table__td--one').innerHTML;
+    const tdID = delRow.querySelector('.table__td--one').innerText;
+    console.log(tdID);
     serverData = serverData.filter(item => item.id !== Number(tdID));
     console.log(serverData);
     delRow.remove();
   }
 });
+
+
 
 //Организуем блокировку разблокировку инпута дисконт
 const editCheckbox = document.querySelector('.edit__checkbox');
@@ -148,9 +156,14 @@ const form = document.querySelector('#product');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-
   const formData = new FormData(e.target);
-
-  console.log([Object.fromEntries(formData)]);
-
+  const newRow = Object.fromEntries(formData);
+  newRow.id = Math.floor(Math.random() * (999999999 - 100000000)) + 100000000;
+  console.log(newRow);
+  console.log(serverData);
+  serverData = serverData.concat(newRow);
+  console.log(serverData);
+  renderGoods(serverData);
+  form.reset();
+  closeModal();
 })
