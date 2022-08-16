@@ -4,7 +4,7 @@ const nameForm = document.querySelector('.top__title');
 const numberID = document.querySelector('.top__btn');
 // const form = document.querySelector('form');
 const coupleDiscount = document.querySelector('.edit__couple');
-const totalProduct = document.querySelector('.modal__total-number');
+// const totalProduct = document.querySelector('.modal__total-number');
 
 let serverData = [
   {
@@ -105,12 +105,27 @@ const renderGoods = (data) => {
 }
 renderGoods(serverData);
 
+//подсчет итоговой стоимости в таблице
+const totalSumTable = document.querySelector('.header__total-number');
+
+const sumTable = (data) => {
+  console.log(data);
+  const result = data.reduce((sum, { price, count }) => sum + count * price, 0);
+  totalSumTable.textContent = result;
+  console.log(result);
+}
+sumTable(serverData);
+
 //организуем закрытие или открытие модального окна
+//присваиваем случайный id при открытии модального окна
 const modalOpen = document.querySelector('.table-top__modal');
 const modal = document.querySelector('.modal');
+let id;
 
 modalOpen.addEventListener('click', () => {
   modal.classList.add('modal--active');
+  id = Math.floor(Math.random() * (999999999 - 100000000)) + 100000000;
+  document.querySelector('.vendor-code').textContent = id;
 });
 
 const modalWindow = document.querySelector('.modal__window');
@@ -132,14 +147,13 @@ tBody.addEventListener('click', e => {
   if (e.target.closest('.basket')) {
     const delRow = e.target.closest('.table__tbody-tr');
     const tdID = delRow.querySelector('.table__td--one').innerText;
-    console.log(tdID);
     serverData = serverData.filter(item => item.id !== Number(tdID));
     console.log(serverData);
     delRow.remove();
+    sumTable(serverData);
+
   }
 });
-
-
 
 //Организуем блокировку разблокировку инпута дисконт
 const editCheckbox = document.querySelector('.edit__checkbox');
@@ -148,7 +162,7 @@ const editInputDiscount = document.querySelector('.edit__input-discount');
 editCheckbox.addEventListener('click', e => {
   e.target.checked ? editInputDiscount.disabled = false :
     editInputDiscount.disabled = true;
-})
+});
 
 //Организуем передачу данных из форму в таблицу
 //Потом наверное паралельно и отправку на сервер
@@ -158,12 +172,20 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   const formData = new FormData(e.target);
   const newRow = Object.fromEntries(formData);
-  newRow.id = Math.floor(Math.random() * (999999999 - 100000000)) + 100000000;
-  console.log(newRow);
-  console.log(serverData);
+  newRow.id = id;
   serverData = serverData.concat(newRow);
-  console.log(serverData);
   renderGoods(serverData);
+  sumTable(serverData);
   form.reset();
   closeModal();
-})
+});
+
+//подсчет итоговой стоимости в форме
+form.price.addEventListener('change', e => {
+  const totalSumForm = form.count.value * form.price.value;
+  document.querySelector('.total').textContent = totalSumForm;
+});
+form.count.addEventListener('change', e => {
+  const totalSumForm = form.count.value * form.price.value;
+  document.querySelector('.total').textContent = totalSumForm;
+});
