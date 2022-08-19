@@ -52,11 +52,11 @@ let serverData = [
   {
     "id": 246258248,
     "title": "Витая пара PROConnect 01-0043-3-25",
-    "price": 22,
+    "price": 22.21,
     "description": "Витая пара Proconnect 01-0043-3-25 является сетевым кабелем с 4 парами проводов типа UTP, в качестве проводника в которых используется алюминий, плакированный медью CCA. Такая неэкранированная витая пара с одножильными проводами диаметром 0.50 мм широко применяется в процессе сетевых монтажных работ. С ее помощью вы сможете обеспечить развертывание локальной сети в домашних условиях или на предприятии, объединить все необходимое вам оборудование в единую сеть.",
     "category": "cables",
     "discont": false,
-    "count": 420,
+    "count": 4213,
     "units": "v",
     "images": {
       "small": "img/lan_proconnect43-3-25.jpg",
@@ -82,7 +82,7 @@ const createRow = ({
   <td class="table__td table__td--four">${units}</td>
   <td class="table__td table__td--five">${count}</td>
   <td class="table__td table__td--six">${price}</td>
-  <td class="table__td table__td--seven">${price * count}</td>
+  <td class="table__td table__td--seven">${(price * count).toFixed(2)}</td>
   <td class="table__td table__td--eight">
   <button type="button" class="${images ? `img` : `no-img`}"></button>
   </td>
@@ -126,13 +126,20 @@ modalOpen.addEventListener('click', () => {
   modal.classList.add('modal--active');
   id = Math.floor(Math.random() * (999999999 - 100000000)) + 100000000;
   document.querySelector('.vendor-code').textContent = id;
+  form.reset();
 });
 
 const modalWindow = document.querySelector('.modal__window');
 
+const closeCheckbox = () => {
+  editInputDiscount.disabled = true; //функция снимает чекбокс в поле формы
+  editCheckbox.checked = false;
+}
+
 modal.addEventListener('click', e => {
   if (e.target === modal || e.target.classList.contains('modal__close')) {
     modal.classList.remove('modal--active');
+    closeCheckbox();
   }
 });
 
@@ -162,6 +169,9 @@ const editInputDiscount = document.querySelector('.edit__input-discount');
 editCheckbox.addEventListener('click', e => {
   e.target.checked ? editInputDiscount.disabled = false :
     editInputDiscount.disabled = true;
+  editCheckbox.checked ? editInputDiscount.focus() :
+    editInputDiscount.disabled = true;
+  editInputDiscount.value = "";
 });
 
 //Организуем передачу данных из форму в таблицу
@@ -176,16 +186,17 @@ form.addEventListener('submit', e => {
   serverData = serverData.concat(newRow);
   renderGoods(serverData);
   sumTable(serverData);
+  closeCheckbox();
   form.reset();
   closeModal();
 });
 
 //подсчет итоговой стоимости в форме
 form.price.addEventListener('change', e => {
-  const totalSumForm = form.count.value * form.price.value;
+  const totalSumForm = (form.count.value * form.price.value).toFixed(2);
   document.querySelector('.total').textContent = totalSumForm;
 });
 form.count.addEventListener('change', e => {
-  const totalSumForm = form.count.value * form.price.value;
+  const totalSumForm = (form.count.value * form.price.value).toFixed(2);
   document.querySelector('.total').textContent = totalSumForm;
 });

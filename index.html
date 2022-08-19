@@ -15,7 +15,7 @@
         <h1 class="header__title">CRM</h1>
         <p class="header__total">
           Итоговая стоимость:&nbsp;&nbsp;<span class="header__total-number">
-            900.00</span
+            00.00</span
           >
         </p>
       </header>
@@ -323,6 +323,8 @@
                 type="number"
                 name="price"
                 id="price"
+                step="0.01"
+                min="0"
                 required
                 class="edit__input"
               />
@@ -337,14 +339,14 @@
               ></textarea>
             </label>
             <div class="edit edit--discount">
-              <label for="discont">
+              <label for="discont" aria-label="Включить скидку на товар">
                 <span class="edit__title">дисконт</span>
               </label>
               <div class="edit__couple">
                 <input
                   type="checkbox"
-                  name="discont"
                   id="discont"
+                  aria-label="Включить скидку на товар"
                   class="edit__checkbox"
                 />
                 <input
@@ -352,6 +354,7 @@
                   type="text"
                   name="discount-name"
                   id="discount-name"
+                  required
                   class="edit__input-discount"
                 />
               </div>
@@ -374,7 +377,7 @@
         <div class="modal__add">
           <p class="modal__total">
             Итоговая стоимость:<span class="modal__total-number">
-              <span class="total">900</span></span
+              <span class="total">0.00</span></span
             >
           </p>
           <button type="submit" form="product" class="modal__total-button">
